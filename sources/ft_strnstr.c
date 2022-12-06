@@ -1,3 +1,5 @@
+#include "libft.h"
+
 
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
@@ -23,11 +25,3 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	return(NULL);
 }
 
-int main()
-{
-  char str1[] = "in this little string i want to find";
-  char str2[] = "to";
-
-  printf("%s\n", ft_strnstr(str1, str2, 30));
-  // printf("%s\n", strnstr(str1, str2, 30));
-}
