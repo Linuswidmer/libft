@@ -1,6 +1,3 @@
-#include <stdio.h>
-#include <stdlib.h>
-
 int	ft_isdigit(int c)
 {
 		if (c >= 48 && c <= 57)
@@ -35,8 +32,3 @@ int ft_atoi(const char* nptr)
   return(n * neg);
 }
 
-int main()
-{
-  printf("%i\n", atoi("2147483647"));
-  printf("%i\n", ft_atoi("2147483647"));
-}

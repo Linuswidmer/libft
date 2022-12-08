@@ -9,8 +9,10 @@ void *ft_memchr(const void *s, int c, size_t n)
   {
     while (i < n) {
       if((*(char*)s) == c)
+      {
         return ((void*)s);
-      (char*)s++;
+      }
+      s = (char*)s + 1;
       i++;
     }
   }

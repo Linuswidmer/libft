@@ -10,9 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <ctype.h>
-
 int	ft_toupper(int c)
 {
 		if (c <= 122 && c >= 97)
@@ -21,10 +18,3 @@ int	ft_toupper(int c)
 	    return (c);
 }
 
-int main()
-{
-  printf("%c\n", ft_toupper('c'));
-  printf("%c\n", ft_toupper('X'));
-  printf("%c\n", toupper('c'));
-  printf("%c\n", toupper('X'));
-}

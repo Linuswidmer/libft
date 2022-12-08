@@ -1,17 +1,6 @@
-#include <string.h>
-#include <stdio.h>
+#include "libft.h"
 
-int	ft_strlen(const char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i] != '\0')
-		i++;
-	return (i);
-}
-
-size_t	ft_strlcat(char *dest, char *src, size_t size)
+size_t	ft_strlcat(char *dest, const char *src, size_t size)
 {
 	size_t	i;
 	size_t  j;
@@ -39,12 +28,3 @@ size_t	ft_strlcat(char *dest, char *src, size_t size)
 	}
 }
 
-int main()
-{
-  char src[] = "hello world";
-  char dest[11];
-
-  dest[0] = 'x';
-  ft_strlcat(dest, src, 11);
-  printf("%s\n",dest);
-}

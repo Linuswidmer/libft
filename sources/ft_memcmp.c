@@ -12,8 +12,8 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 		  if (*(char*)s1 == *(char*)s2)
 		  {
 			  i++;
-        (char*)s1++;
-        (char*)s2++;
+        s1 = (char*)s1 + 1;
+        s2 = (char*)s2 + 1;
 		  }
 		  else
 		  {

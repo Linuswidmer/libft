@@ -9,9 +9,6 @@
 /*   Updated: 2022/08/23 10:42:59 by lwidmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdio.h>
-#include <ctype.h>
-
 int	ft_tolower(int c)
 {
 	if( c <= 90 && c >= 65)
@@ -20,10 +17,3 @@ int	ft_tolower(int c)
 	    return (c);
 }
 
-int main()
-{
-  printf("%c\n", ft_tolower('c'));
-  printf("%c\n", ft_tolower('X'));
-  printf("%c\n", tolower('c'));
-  printf("%c\n", tolower('X'));
-}
