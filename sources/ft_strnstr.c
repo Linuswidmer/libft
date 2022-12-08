@@ -1,4 +1,6 @@
 #include "libft.h"
+// #include <string.h>
+// #include <stdio.h>
 
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
@@ -11,7 +13,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 		return ((char*)big);
 	while (big[i] != '\0' && i < len)
 	{
-		while (big[i]  == little[j])
+		while (big[i]  == little[j] && i < len)
 		{
 			i++;
 			j++;
@@ -23,4 +25,12 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	}
 	return(NULL);
 }
+
+// int main()
+// {
+//
+// 		printf("%s\n", ft_strnstr("lorem ipsum dolor sit amet", "dolor", 15));
+// 		// printf("%s\n", strnstr("lorem ipsum dolor sit amet", "dolor", 15));
+//
+// }
 
