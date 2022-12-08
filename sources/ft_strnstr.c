@@ -33,4 +33,3 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 // 		// printf("%s\n", strnstr("lorem ipsum dolor sit amet", "dolor", 15));
 //
 // }
-
