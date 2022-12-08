@@ -1,6 +1,16 @@
-// #include "libft.h"
-#include <stdio.h>
-#include <string.h>
+#include "libft.h"
+
+int return_fun(int c1, int c2)
+{
+  if (c1 < 0)
+    c1 = c1 * -1;
+  if(c2 < 0)
+    c2 = c2 * -1;
+  if(c1 > c2)
+    return(1);
+  else 
+    return(-1);
+}
 
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {	
@@ -19,10 +29,7 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 		  }
 		  else
 		  {
-			  if((*(char*)s1 > *(char*)s2))
-			    return (1);
-        else 
-          return(-1);
+          return(return_fun(*(char*)s1, *(char*)s2));
 		  }
 	  }
 	  // if (i == n || *(char*)s1 == '\0' || *(char*)s2 == '\0')
@@ -30,17 +37,8 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	  {
 		  return (0);
 	  }
-	  if((*(char*)s1 > *(char*)s2))
-	    return (1);
-    else
-      return(-1);
+    return(return_fun(*(char*)s1, *(char*)s2));
   }
   else
     return(0);
-}
-
-int main()
-{
-  printf("%i\n", ft_memcmp("t\200", "t\0", 2));
-  printf("%i\n", memcmp("t\200", "t\0", 2));
 }
