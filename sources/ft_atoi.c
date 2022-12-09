@@ -1,3 +1,4 @@
+
 int	ft_isdigit(int c)
 {
 		if (c >= 48 && c <= 57)
@@ -23,6 +24,8 @@ int ft_atoi(const char* nptr)
     neg = -1;
     i++;
   }
+  else if(nptr[i] == '+')
+    i++;
   while (ft_isdigit(nptr[i])) 
   {
       n = n * 10;
