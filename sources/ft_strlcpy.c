@@ -18,12 +18,11 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 
 	index = 0;
 	if (size == 0 )
-	{
 		return (ft_strlen(src));
-	}
 	else
 	{
-		while (index < (ft_strlen(dest) - 1) && index < (size - 1) && src[index] != '\0')
+		// while (index < (ft_strlen(dest) - 1) && index < (size - 1))
+		while (index < (size - 1) && src[index] != '\0')
 		{
 			dest[index] = src[index];
 			index++;
@@ -36,6 +35,30 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 		return (ft_strlen(src));
 	}
 }
+// size_t	ft_strlcpy(char *dest, const char *src, size_t size)
+// {
+// 	size_t index;
+//
+// 	index = 0;
+// 	if (size == 0 )
+// 	{
+// 		return (ft_strlen(src));
+// 	}
+// 	else
+// 	{
+// 		while (index < (ft_strlen(dest) - 1) && index < (size - 1) && src[index] != '\0')
+// 		{
+// 			dest[index] = src[index];
+// 			index++;
+// 		}
+//   //   while (dest[index] != '\0' && index < size) 
+//   //   {
+//   //    index++; 
+//   //   }
+// 		dest[index] = '\0';
+// 		return (ft_strlen(src));
+// 	}
+// }
 
 // int main()
 // {

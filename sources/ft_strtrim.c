@@ -1,19 +1,20 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <bsd/string.h>
-#include <strings.h>
-
-
-char *ft_substr(char const *s, unsigned int start, size_t len)
-{
-  size_t i;
-  char *ptr;
-
-  ptr = malloc(len);
-  bzero(ptr, len);
-  strlcpy(ptr, s + start, len);
-  return(ptr);
-}
+// #include <stdio.h>
+// #include <stdlib.h>
+// #include <bsd/string.h>
+// #include <strings.h>
+//
+//
+// char *ft_substr(char const *s, unsigned int start, size_t len)
+// {
+//   char *ptr;
+//
+//   ptr = malloc(len);
+//   bzero(ptr, len);
+//   strlcpy(ptr, s + start, len);
+//   return(ptr);
+// }
+//
+#include "libft.h"
 
 char *ft_strtrim(char const *s1, char const *set)
 {
@@ -25,13 +26,13 @@ char *ft_strtrim(char const *s1, char const *set)
 
   i = 0;
   beginning = 0;
-  end = strlen(s1) - 1;
-  while (i < strlen(s1))
+  end = ft_strlen(s1) - 1;
+  while (i < ft_strlen(s1))
   {
     j = 0;
-    while(j < strlen(set))
+    while(j < ft_strlen(set))
     {
-      if(strncmp((s1 + i), (set + j), 1) == 0)
+      if(ft_strncmp((s1 + i), (set + j), 1) == 0)
       {
         beginning++;
         break;
@@ -41,19 +42,19 @@ char *ft_strtrim(char const *s1, char const *set)
         j++;
       }
     }
-    if (j == strlen(set))
+    if (j == ft_strlen(set))
     {
       break;
     }
     i++;
   }
   
-  while (end >= 0)
+  while (end > 0)
   {
     j = 0;
-    while (j < strlen(set)) 
+    while (j < ft_strlen(set)) 
     {
-      if(strncmp((s1 + end), (set + j), 1) == 0)
+      if(ft_strncmp((s1 + end), (set + j), 1) == 0)
       {
         end--;
         break;
@@ -63,7 +64,7 @@ char *ft_strtrim(char const *s1, char const *set)
         j++;
       }
     }
-    if (j == strlen(set))
+    if (j == ft_strlen(set))
     {
       break;
     }
@@ -74,11 +75,11 @@ char *ft_strtrim(char const *s1, char const *set)
   return(ptr);
 }
 
-int main()
-{
-  char *ptr;
-
-  ptr = ft_strtrim("Hello World!", "Hlde");
-  printf("%s\n", ptr);
-  free(ptr);
-}
+// int main()
+// {
+//   char *ptr;
+//
+//   ptr = ft_strtrim("Hello World!", "Hlde");
+//   printf("%s\n", ptr);
+//   free(ptr);
+// }
