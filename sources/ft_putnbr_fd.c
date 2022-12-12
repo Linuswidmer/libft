@@ -1,6 +1,7 @@
 #include "libft.h"
+// #include <unistd.h>
 
-void	print(int nb, int fd)
+void	print(unsigned int nb, int fd)
 {
 	char	printchar;
 
@@ -14,20 +15,23 @@ void	print(int nb, int fd)
 
 void	ft_putnbr_fd(int nb, int fd)
 {
-	if (nb == -2147483648)
-		write(fd, "-2147483648", 12);
-	else if (nb < 0)
+  size_t num;
+
+  if (nb < 0)
 	{
 		write(fd, "-", 1);
-		nb = nb * (-1);
-		print(nb, fd);
+		num = nb * (-1);
+		print(num, fd);
 	}
 	else if (nb == 0)
 	{
 		write(fd, "0", 1);
 	}
 	else
-	{
 		print(nb, fd);
-	}
 }
+
+// int main()
+// {
+//   ft_putnbr_fd(-2147483648, 2);
+// }
