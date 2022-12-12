@@ -105,17 +105,14 @@
 //
 #include "libft.h"
 
-char *ft_strtrim(char const *s1, char const *set)
+size_t trim_beginning(char const *s1, char const *set)
 {
-  size_t i;
   size_t j;
   size_t beginning;
-  size_t end;
-  char *ptr;
 
-  i = 0;
+  j = 0;
   beginning = 0;
-  end = ft_strlen(s1) - 1;
+
   while (beginning < ft_strlen(s1))
   {
     j = 0;
@@ -132,6 +129,17 @@ char *ft_strtrim(char const *s1, char const *set)
     if (j == ft_strlen(set))
       break;
   }
+  return(beginning);
+}
+
+size_t trim_end(char const*s1, char const *set)
+{
+  size_t i;
+  size_t j;
+  size_t end;
+  
+  i = 0;
+  end = ft_strlen(s1) - 1;
   while (end > 0)
   {
     j = 0;
@@ -144,27 +152,82 @@ char *ft_strtrim(char const *s1, char const *set)
         break;
       }
       else
-      {
         j++;
-      }
     }
     if (j == ft_strlen(set))
-    {
       break;
-    }
   }
+  return(ft_strlen(s1) - i);
+}
 
-  ptr = ft_substr(s1, beginning, ft_strlen(s1) - i - beginning);
+char *ft_strtrim(char const *s1,char const *set)
+{
+  char *ptr;
+  size_t beginning;
+  size_t end;
+
+  beginning = trim_beginning(s1, set);
+  end = trim_end(s1, set);
+  ptr = ft_substr(s1, beginning, end - beginning);
   return(ptr);
 }
 
-// int main()
+// char *ft_strtrim2(char const *s1, char const *set)
 // {
+//   size_t i;
+//   size_t j;
+//   size_t beginning;
+//   size_t end;
 //   char *ptr;
-// 		char s1[] = "lorem \n ipsum \t dolor \n sit \t amet";
-// 		// char s1[] = "AAABBBAAAAA";
 //
-//   ptr = ft_strtrim(s1, "loet");
-//   printf("%s\n", ptr);
-//   free(ptr);
+//   i = 0;
+//   beginning = 0;
+//   end = ft_strlen(s1) - 1;
+//   while (beginning < ft_strlen(s1))
+//   {
+//     j = 0;
+//     while(j < ft_strlen(set))
+//     {
+//       if(ft_strncmp((s1 + beginning), (set + j), 1) == 0)
+//       {
+//         beginning++;
+//         break;
+//       }
+//       else
+//         j++;
+//     }
+//     if (j == ft_strlen(set))
+//       break;
+//   }
+//   while (end > 0)
+//   {
+//     j = 0;
+//     while (j < ft_strlen(set)) 
+//     {
+//       if(ft_strncmp((s1 + end), (set + j), 1) == 0)
+//       {
+//         end--;
+//         i++;
+//         break;
+//       }
+//       else
+//         j++;
+//     }
+//     if (j == ft_strlen(set))
+//       break;
+//   }
+//
+//   ptr = ft_substr(s1, beginning, ft_strlen(s1) - i - beginning);
+//   return(ptr);
 // }
+//
+// // int main()
+// // {
+// //   char *ptr;
+// // 		char s1[] = "lorem \n ipsum \t dolor \n sit \t amet";
+// // 		// char s1[] = "AAABBBAAAAA";
+// //
+// //   ptr = ft_strtrim(s1, "loet");
+// //   printf("%s\n", ptr);
+// //   free(ptr);
+// // }
