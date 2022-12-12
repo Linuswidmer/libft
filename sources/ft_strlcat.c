@@ -1,7 +1,7 @@
 #include "libft.h"
 // #include <stdio.h>
 // #include <bsd/string.h>
-//
+// #include <unistd.h>
 //
 // size_t ft_strlen(const char *str)
 // {
@@ -48,14 +48,14 @@ size_t	ft_strlcat(char *dest, const char *src, size_t size)
 //   int i;
 //
 //   i = 0;
-// 	memset(dest, 0, 15);
-// 	memset(dest, 'r', 6);
+// 	// memset(dest, 0, 15);
+// 	// memset(dest, 'r', 6);
 // 		// dest[0] = '\0';
 // 		// dest[11] = 'a';
-//   dest[14] = 'a';
-// 		// memset(dest, 'r', 15);
-//   printf("%li\n", ft_strlcat(dest, "lorem ipsum dolor sit amet", 15));
-//   printf("%s\n", dest);
+//   // dest[14] = 'a';
+// 	memset(dest, 'r', 15);
+//   printf("%li\n", ft_strlcat(dest, "lorem ipsum dolor sit amet", 5));
+//   write(1,dest,15);
 //
 //   // while(i <= 15)
 //   // {
