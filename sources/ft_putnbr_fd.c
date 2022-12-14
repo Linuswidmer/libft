@@ -1,5 +1,4 @@
 #include "libft.h"
-// #include <unistd.h>
 
 void	print(unsigned int nb, int fd)
 {
@@ -24,14 +23,7 @@ void	ft_putnbr_fd(int nb, int fd)
 		print(num, fd);
 	}
 	else if (nb == 0)
-	{
 		write(fd, "0", 1);
-	}
 	else
 		print(nb, fd);
 }
-
-// int main()
-// {
-//   ft_putnbr_fd(-2147483648, 2);
-// }

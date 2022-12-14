@@ -1,6 +1,4 @@
 #include "libft.h"
-// #include <string.h>
-// #include <stdio.h>
 
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
@@ -26,10 +24,3 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	return(NULL);
 }
 
-// int main()
-// {
-//
-// 		printf("%s\n", ft_strnstr("lorem ipsum dolor sit amet", "dolor", 15));
-// 		// printf("%s\n", strnstr("lorem ipsum dolor sit amet", "dolor", 15));
-//
-// }

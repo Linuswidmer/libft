@@ -8,7 +8,7 @@ void *ft_calloc(size_t nmeb, size_t size)
     return(0);
   if(nmeb != 0 && size > 2147483647 / nmeb)
     return(0);
-  ptr = malloc(nmeb * size); // malloc returns a pointer value if one of the two is 0
+  ptr = malloc(nmeb * size);
   if (ptr)
   {
     ft_bzero(ptr, nmeb * size);

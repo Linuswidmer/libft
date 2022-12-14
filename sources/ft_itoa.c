@@ -1,6 +1,5 @@
 #include "libft.h"
 
-
 int ft_numdigits(int n)
 {
   int i;
@@ -46,14 +45,12 @@ char *ft_itoa(int n)
   char *ptr;
   int len;
   int neg;
-  char s[] = "-2147483648\0";
+  char smallest_neg[] = "-2147483648\0";
 
   len = 0;
   neg = 0;
   if(n == -2147483648)
-  {
-    return(ft_strdup(s));
-  }
+    return(ft_strdup(smallest_neg));
   if(n < 0)
   {
     neg = 1;
@@ -64,9 +61,7 @@ char *ft_itoa(int n)
   if(ptr)
   {
     if(neg == 1)
-    {
       ptr[0] = '-';
-    }
     ft_putinttostr(ptr, n, len, neg);
     ptr[len + neg] = '\0';
   }

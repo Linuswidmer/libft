@@ -1,4 +1,6 @@
 libft-war-machine/
 *.o
+sources/*.o
 library_tests/
 libftTester/
+main_files/

@@ -10,7 +10,7 @@ char *ft_strmapi(const char *s, char (*f)(unsigned int, char))
   len = ft_strlen(s);
   ptr = malloc(len + 1);
   if(!ptr)
-    return(0);
+    return(NULL);
   while(s[i] != '\0')
   {
     ptr[i] = f(i, s[i]);
