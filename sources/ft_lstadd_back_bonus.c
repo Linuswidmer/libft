@@ -1,40 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lwidmer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/15 10:05:13 by lwidmer           #+#    #+#             */
-/*   Updated: 2022/12/15 10:07:35 by lwidmer          ###   ########.fr       */
+/*   Created: 2022/12/15 11:20:28 by lwidmer           #+#    #+#             */
+/*   Updated: 2022/12/15 11:21:00 by lwidmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *nptr)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	int	i;
-	int	neg;
-	int	n;
+	t_list	*temp;
 
-	n = 0;
-	i = 0;
-	neg = 1;
-	while (nptr[i] == 32 || (nptr[i] >= 9 && nptr[i] <= 13))
-		i++;
-	if (nptr[i] == '-')
+	if (!new)
+		return ;
+	if (!(*lst))
 	{
-		neg = -1;
-		i++;
+		*lst = new;
+		return ;
 	}
-	else if (nptr[i] == '+')
-		i++;
-	while (ft_isdigit(nptr[i]))
-	{
-		n = n * 10;
-		n = n + nptr[i] - 48;
-		i++;
-	}
-	return (n * neg);
+	temp = ft_lstlast(*lst);
+	temp->next = new;
 }

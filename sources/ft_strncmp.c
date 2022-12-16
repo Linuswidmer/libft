@@ -1,13 +1,16 @@
-#include "libft.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lwidmer <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/12/15 10:00:16 by lwidmer           #+#    #+#             */
+/*   Updated: 2022/12/16 09:36:03 by lwidmer          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-int return_fun(int c1, int c2)
-{
-  if (c1 < 0)
-    c1 = c1 * -1;
-  if(c2 < 0)
-    c2 = c2 * -1;
-  return(c1 -c2);
-}
+#include "libft.h"
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {	
@@ -19,9 +22,9 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 		if (s1[i] == s2[i])
 			i++;
 		else
-        return(return_fun(s1[i], s2[i]));
+			return ((unsigned char) s1[i] - (unsigned char) s2[i]);
 	}
 	if (i == n)
 		return (0);
-  return(return_fun(s1[i], s2[i]));
+	return ((unsigned char) s1[i] - (unsigned char) s2[i]);
 }

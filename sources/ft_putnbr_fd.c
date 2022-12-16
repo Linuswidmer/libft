@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lwidmer <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/12/15 10:44:29 by lwidmer           #+#    #+#             */
+/*   Updated: 2022/12/16 11:07:13 by lwidmer          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 void	print(unsigned int nb, int fd)
@@ -14,9 +26,9 @@ void	print(unsigned int nb, int fd)
 
 void	ft_putnbr_fd(int nb, int fd)
 {
-  size_t num;
+	size_t	num;
 
-  if (nb < 0)
+	if (nb < 0)
 	{
 		write(fd, "-", 1);
 		num = nb * (-1);

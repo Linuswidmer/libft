@@ -1,27 +1,39 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lwidmer <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/12/15 10:22:26 by lwidmer           #+#    #+#             */
+/*   Updated: 2022/12/16 10:59:40 by lwidmer          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-size_t next_sep_pos(char const *str, char c, size_t pos)
+size_t	next_sep_pos(char const *str, char c, size_t pos)
 {
 	while (str[pos] != '\0')
 	{
 		if (str[pos] == c)
 			return (pos);
-    pos++;
+		pos++;
 	}
 	return (pos);
 }
 
-size_t ft_skip(char const *str, char c, size_t str_pos)
-{	
+size_t	ft_skip(char const *str, char c, size_t str_pos)
+{
 	while (str[str_pos] == c)
 		str_pos++;
-	return(str_pos);
+	return (str_pos);
 }
 
-size_t ft_num_elements(char const *str, char c)
+size_t	ft_num_elements(char const *str, char c)
 {
-	size_t i;
-	int num_elements;
+	size_t	i;
+	int		num_elements;
 
 	i = ft_skip(str, c, 0);
 	num_elements = 0;
@@ -33,31 +45,30 @@ size_t ft_num_elements(char const *str, char c)
 		i = ft_skip(str, c, i);
 	}
 	return (num_elements);
-
 }
 
-char **ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
-  size_t num_elements;
-  char **arr;
-  size_t i;
-  unsigned int str_pos;
-  size_t str_length;
+	size_t	num_elements;
+	char	**arr;
+	size_t	i;
+	size_t	str_pos;
+	size_t	str_length;
 
-  i = 0;
-  str_pos = 0;
-  num_elements = ft_num_elements(s, c);
-  arr = malloc(sizeof(arr) * (num_elements + 1));
-  if(!arr)
-    return(NULL);
-  while (i < num_elements)
-  {
-    str_pos = ft_skip(s, c, str_pos);
-    str_length = next_sep_pos(s, c, str_pos) - str_pos;
-    arr[i] = ft_substr(s, str_pos, str_length);
-    str_pos = str_pos + str_length  + 1;
-    i++;
-  }
-  arr[i] = NULL;
-  return(arr);
+	i = 0;
+	str_pos = 0;
+	num_elements = ft_num_elements(s, c);
+	arr = malloc(sizeof(arr) * (num_elements + 1));
+	if (!arr)
+		return (NULL);
+	while (i < num_elements)
+	{
+		str_pos = ft_skip(s, c, str_pos);
+		str_length = next_sep_pos(s, c, str_pos) - str_pos;
+		arr[i] = ft_substr(s, str_pos, str_length);
+		str_pos = str_pos + str_length + 1;
+		i++;
+	}
+	arr[i] = NULL;
+	return (arr);
 }

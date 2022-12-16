@@ -1,30 +1,90 @@
-SRCS =ft_isalpha.c ft_isdigit.c ft_isprint.c ft_isascii.c ft_isalnum.c ft_strlen.c ft_memset.c ft_bzero.c ft_memcpy.c ft_memmove.c ft_memchr.c ft_memcmp.c ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c ft_itoa.c ft_strdup.c ft_strmapi.c ft_striteri.c ft_strlcpy.c ft_strlcat.c ft_toupper.c ft_tolower.c ft_strchr.c ft_strrchr.c ft_strncmp.c ft_strnstr.c ft_atoi.c ft_substr.c ft_strjoin.c ft_strtrim.c ft_split.c
-OBJS =ft_isalpha.o ft_isdigit.o ft_isprint.o ft_isascii.o ft_isalnum.o ft_strlen.o ft_memset.o ft_bzero.o ft_memcpy.o ft_memmove.o ft_memchr.o ft_memcmp.o ft_putchar_fd.o ft_putstr_fd.o ft_putendl_fd.o ft_putnbr_fd.o ft_itoa.o ft_strdup.o ft_strmapi.o ft_striteri.o ft_strlcpy.o ft_strlcat.o ft_toupper.o ft_tolower.o ft_strchr.o ft_strrchr.o	ft_strncmp.o ft_strnstr.o ft_atoi.o ft_substr.o ft_strjoin.o ft_strtrim.o ft_split.o
-BONUS_SRCS = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c
-BONUS_OBJS = ft_lstnew.o ft_lstadd_front.o ft_lstsize.o ft_lstlast.o ft_lstadd_back.o ft_lstdelone.o ft_lstclear.o ft_lstiter.o ft_lstmap.o
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: lwidmer <marvin@42.fr>                     +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/12/16 09:51:03 by lwidmer           #+#    #+#              #
+#    Updated: 2022/12/16 10:44:22 by lwidmer          ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
-HEADER = libft.h
 NAME = libft.a
-CFLAGS = -Werror -Wall -Wextra
 
+FILENAMES = ft_isalpha \
+			ft_isdigit \
+			ft_isprint \
+			ft_isascii \
+			ft_isalnum \
+			ft_strlen \
+			ft_memset \
+			ft_bzero \
+			ft_memcpy \
+			ft_memmove \
+			ft_memchr \
+			ft_memcmp \
+			ft_putchar_fd \
+			ft_putstr_fd \
+			ft_putendl_fd \
+			ft_putnbr_fd \
+			ft_itoa \
+			ft_strdup \
+			ft_strmapi \
+			ft_striteri \
+			ft_strlcpy \
+			ft_strlcat \
+			ft_toupper \
+			ft_tolower \
+			ft_strchr \
+			ft_strrchr \
+			ft_strncmp \
+			ft_strnstr \
+			ft_atoi \
+			ft_substr \
+			ft_strjoin \
+			ft_strtrim \
+			ft_split \
+			ft_calloc
+
+BONUS_FILENAMES = ft_lstnew_bonus \
+			ft_lstadd_front_bonus \
+			ft_lstsize_bonus \
+			ft_lstlast_bonus \
+			ft_lstadd_back_bonus \
+			ft_lstdelone_bonus \
+			ft_lstclear_bonus \
+			ft_lstiter_bonus \
+			ft_lstmap_bonus
+
+SRCS_DIR = ./
+SRCS = $(addprefix $(SRCS_DIR), $(addsuffix .c, $(FILENAMES)))
+SRCS_B = $(addprefix $(SRCS_DIR), $(addsuffix .c, $(BONUS_FILENAMES)))
+
+OBJS_DIR = ./
+OBJS = $(addprefix $(OBJS_DIR), $(addsuffix .o, $(FILENAMES)))
+OBJS_B = $(addprefix $(OBJS_DIR), $(addsuffix .o, $(BONUS_FILENAMES)))
+CFLAGS = -Werror -Wall -Wextra
 
 ${NAME}: ${OBJS}
 	ar rc $@ $^
+	ranlib ${NAME}
 
-%.o: %.c
-	cc -c ${CFLAGS} $^ -o $@
+.c.o: ${SRCS}
+	cc ${CFLAGS} -c -o $@ $<
 
 all: ${NAME}
 
 clean:
-	rm -rf ${OBJS}
-
-.PHONY: clean
+	rm -rf ${OBJS} ${OBJS_B}
 
 fclean: clean
 	rm -rf ${NAME}
 
 re: fclean all
 
-bonus: ${OBJS} ${BONUS_OBJS}
-	ar rc ${NAME} ${OBJS} ${BONUS_OBJS}
+bonus: ${OBJS} ${OBJS_B}
+	ar rc ${NAME} ${OBJS} ${OBJS_B}
+	ranlib ${NAME}
+
+.PHONY: all clean fclean re bonus

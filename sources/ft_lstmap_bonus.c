@@ -1,40 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lwidmer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/15 10:05:13 by lwidmer           #+#    #+#             */
-/*   Updated: 2022/12/15 10:07:35 by lwidmer          ###   ########.fr       */
+/*   Created: 2022/12/15 11:13:39 by lwidmer           #+#    #+#             */
+/*   Updated: 2022/12/15 11:16:00 by lwidmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *nptr)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	int	i;
-	int	neg;
-	int	n;
+	t_list	*new_lst;
+	t_list	*new_elem;
 
-	n = 0;
-	i = 0;
-	neg = 1;
-	while (nptr[i] == 32 || (nptr[i] >= 9 && nptr[i] <= 13))
-		i++;
-	if (nptr[i] == '-')
+	if (!lst | !f)
+		return (NULL);
+	new_lst = NULL;
+	while (lst)
 	{
-		neg = -1;
-		i++;
+		new_elem = ft_lstnew(f(lst->content));
+		if (!new_elem)
+		{
+			ft_lstclear(&new_lst, del);
+			return (NULL);
+		}
+		ft_lstadd_back(&new_lst, new_elem);
+		lst = lst->next;
 	}
-	else if (nptr[i] == '+')
-		i++;
-	while (ft_isdigit(nptr[i]))
-	{
-		n = n * 10;
-		n = n + nptr[i] - 48;
-		i++;
-	}
-	return (n * neg);
+	return (new_lst);
 }
