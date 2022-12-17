@@ -97,7 +97,7 @@ re: fclean all
 git:
 	git add .
 	git commit -m "$m"
-	git push origin master
+	git push origin main
 
 # bonus: ${OBJS} ${OBJS_B}
 # 	ar rc ${NAME} ${OBJS} ${OBJS_B}
