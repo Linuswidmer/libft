@@ -4,3 +4,4 @@ sources/*.o
 library_tests/
 libftTester/
 main_files/
+using_libft/
