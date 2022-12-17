@@ -58,31 +58,21 @@ FILENAMES = ft_isalpha \
 			ft_lstiter_bonus \
 			ft_lstmap_bonus
 
-# BONUS_FILENAMES = ft_lstnew_bonus \
-# 			ft_lstadd_front_bonus \
-# 			ft_lstsize_bonus \
-# 			ft_lstlast_bonus \
-# 			ft_lstadd_back_bonus \
-# 			ft_lstdelone_bonus \
-# 			ft_lstclear_bonus \
-# 			ft_lstiter_bonus \
-# 			ft_lstmap_bonus
-
 SRCS_DIR = ./sources_libft/
 SRCS = $(addprefix $(SRCS_DIR), $(addsuffix .c, $(FILENAMES)))
-# SRCS_B = $(addprefix $(SRCS_DIR), $(addsuffix .c, $(BONUS_FILENAMES)))
 
 OBJS_DIR = ./sources_libft/
 OBJS = $(addprefix $(OBJS_DIR), $(addsuffix .o, $(FILENAMES)))
-# OBJS_B = $(addprefix $(OBJS_DIR), $(addsuffix .o, $(BONUS_FILENAMES)))
 CFLAGS = -Werror -Wall -Wextra
+
+INCLUDES_DIR = ./includes/
 
 ${NAME}: ${OBJS}
 	ar rc $@ $^
 	ranlib ${NAME}
 
 .c.o: ${SRCS}
-	cc ${CFLAGS} -c -o $@ $<
+	cc ${CFLAGS} -c -o $@ $< -I ${INCLUDES_DIR}
 
 all: ${NAME} clean
 
@@ -98,9 +88,5 @@ git:
 	git add .
 	git commit -m "$m"
 	git push origin main
-
-# bonus: ${OBJS} ${OBJS_B}
-# 	ar rc ${NAME} ${OBJS} ${OBJS_B}
-# 	ranlib ${NAME}
 
 .PHONY: all clean fclean re
