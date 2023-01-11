@@ -56,7 +56,11 @@ FILENAMES = ft_isalpha \
 			ft_lstdelone_bonus \
 			ft_lstclear_bonus \
 			ft_lstiter_bonus \
-			ft_lstmap_bonus
+			ft_lstmap_bonus \
+			get_next_line \
+			search_new_line \
+			ft_intlen_base \
+			ft_putnbr_base
 
 SRCS_DIR = ./sources_libft/
 SRCS = $(addprefix $(SRCS_DIR), $(addsuffix .c, $(FILENAMES)))

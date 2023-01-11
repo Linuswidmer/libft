@@ -1,25 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_intlen_base.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lwidmer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/15 09:28:57 by lwidmer           #+#    #+#             */
-/*   Updated: 2022/12/16 10:47:46 by lwidmer          ###   ########.fr       */
+/*   Created: 2022/12/22 09:42:26 by lwidmer           #+#    #+#             */
+/*   Updated: 2022/12/22 09:43:01 by lwidmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *str)
+unsigned int	ft_intlen_base(long int n, unsigned int baselen)
 {
-	size_t	i;
+	unsigned int	i;
 
 	i = 0;
-	if (!str)
-		return (i);
-	while (str[i] != '\0')
+	if (n < 0)
+	{
 		i++;
-	return (i);
+		n = n * -1;
+	}
+	while (n > (baselen - 1))
+	{
+		i++;
+		n = n / baselen;
+	}
+	return (i + 1);
 }
